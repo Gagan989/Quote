@@ -1,0 +1,63 @@
+<<div class="text-center title-area">
+    <div id="top-head" class="col col-md-12">
+        <h1>My Quotes</h1>
+    </div>
+</div>
+<hr>
+
+<div class="jumbotron">
+    <div class="container-fluid">
+
+        <div>
+            <div class="row">
+
+                <div class="col col-md-6">
+                    <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+                </div>
+
+                <div class="col col-md-6">
+
+                    <div *ngFor="let quote of quotes; let i = index">
+                        
+                        <p appHighlight *ngIf="hUpvote()===quote.upvotes && 
+                        quote.upvotes>0">
+                            Quote: {{quote.quote}}
+                        </p>
+
+                        <p *ngIf="hUpvote()!==quote.upvotes || quote.upvotes===0">
+                            Quote: {{quote.quote}}
+                        </p>
+
+
+
+                        <app-quote-details [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quote-details>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button class="btn btn-outline-danger waves-effect" (click)='deleteQuote(true,i)'>
+                                    <i class="fa fa-trash"></i>
+                                </button>
+
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-outline-success waves-effect" (click)="upVote(i)">
+                                    {{quotes[i].upvotes}}
+                                    <i class="fa fa-thumbs-up"></i>
+                                </button>
+
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-outline-danger waves-effect" (click)="downVote(i)">
+                                    {{quotes[i].downvotes}}
+                                    <i class="fa fa-thumbs-down"></i>
+                                </button>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

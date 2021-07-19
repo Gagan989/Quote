@@ -1,0 +1,8 @@
+
+.timePassed{
+    background-color: blue;
+    color: red;
+    border: 2px solid white;
+    font-size: 20px;
+    width: 100%;
+}

@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css"
+
+body{
+    
+
+}
+.jumbotron{
+  text-decoration-color: white;
+  background: url(assets/back.jpg);
+  background-position: 0 0;
+  background-attachment: fixed;
+}
+h1{
+  font-family: cursive;
+}
+.title-area{
+   background-color: rgb(61, 117, 155);
+
+}

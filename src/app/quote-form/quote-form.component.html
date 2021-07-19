@@ -1,0 +1,38 @@
+<div class="form-section">
+    <form  (ngSubmit)='submitQuote()' #quoteForm='ngForm'>
+     <div class="form-group md-form ">
+       Author:
+       <input type="text" class="form-control" id="author" [(ngModel)]="newQuote.author" 
+       name="author" #author="ngModel" required>
+       <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+           <p> Author </p>
+       </div>
+       
+      </div>
+   <div class="form-group md-form ">
+       Submitted By: 
+       <input type="text" required class="form-control" id="publisher" [(ngModel)]="newQuote.publisher" name="publisher"
+       #publisher="ngModel" required>
+       <div [hidden]="publisher.valid || publisher.pristine" class="alert alert-danger">
+           <p> Publisher is Required</p>
+       </div>
+   </div>
+     <div class="form-group md-form ">
+         Write your quote here:
+         <textarea class="form-control" id="quote" [(ngModel)]="newQuote.quote" name="quote" rows="4"
+         #quote="ngModel" required></textarea>
+
+         <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
+             <p> Quote is Required</p>
+         </div>
+
+     </div>
+     <div>
+           <button class="btn btn-outline-primary waves-effect" type="submit" name="submit" value="SUBMIT">SUBMIT</button>
+           <div class="mx-2 spinner-grow text-primary" role="submit">
+                   <span class="sr-only">Loading...</span>
+           </div>
+       </div>
+ </form>
+ <p></p>
+ <hr>
